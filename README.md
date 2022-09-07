@@ -1,3 +1,8 @@
-# docker-python
+# global-api
+Service for global users, modules and permission
 
-template to create docker python app
+docker
+python
+flask
+flask alchemy
+flask blueprints
