@@ -7,6 +7,7 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from app.users.routes import users_blueprint
 from app.stories.routes import stories_blueprint
+from app.about.routes import about_blueprint
 from .ext import ma, migrate
 
 def create_app(settings_module):
@@ -24,9 +25,9 @@ def create_app(settings_module):
     # Deshabilita el modo estricto de acabado de una URL con /
     app.url_map.strict_slashes = False
     # Registra los blueprints
-    # app.register_blueprint(films_v1_0_bp)
     app.register_blueprint(users_blueprint)
     app.register_blueprint(stories_blueprint)
+    app.register_blueprint(about_blueprint)
     # Registra manejadores de errores personalizados
     register_error_handlers(app)
     return app

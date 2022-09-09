@@ -1,8 +1,13 @@
-# global-api
-Service for global users, modules and permission
+# Familiapi
 
-docker
-python
-flask
-flask alchemy
-flask blueprints
+## Modules
+- [ ] Users
+- [x] About
+- [ ] Games
+- [ ] Blog
+- [X] Stories
+
+## commons
+- [ ] Tags
+- [ ] Categories
+- [ ] Modules

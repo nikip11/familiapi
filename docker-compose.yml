@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  np11app:
+  app:
     container_name: np11app
     build: .
     volumes:
