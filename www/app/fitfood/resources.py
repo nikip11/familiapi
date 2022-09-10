@@ -34,7 +34,6 @@ class FoodListResource(Resource):
         return food_schema.dump(foods, many=True)
 
     def post(self):
-        # return jsonify({"msg": "wpjfj ooooooo"})
         data = request.get_json()
         food_dict = food_schema.load(data)
         food = Food(**food_dict)

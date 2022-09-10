@@ -2,13 +2,13 @@
 
 ## Modules
 - [x] Users
-- [ ] Auth
+- [-] Auth
 - [x] About
 - [ ] Games
 - [ ] Blog
 - [X] Stories
-- [ ] Fitfoods
-  - [ ] Foods
+- [-] Fitfoods
+  - [-] Foods
   - [ ] Recipe
 
 ## commons
