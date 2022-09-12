@@ -20,15 +20,6 @@ class Tag(db.Model, BaseModelMixin):
     def __repr__(self):
         return '<Tag %r>' % self.name
 
-    @staticmethod
-    def get_or_create(item):
-        name = item.get('name').lower() if 'name' in item else item.lower()
-        tag = Tag.query.filter_by(name=name).first()
-        if tag is None:
-            slug = slugify(name)
-            tag = Tag(name=name, slug=slug)
-        return tag
-
 # categories
 class Category(db.Model, BaseModelMixin):
 
@@ -37,8 +28,19 @@ class Category(db.Model, BaseModelMixin):
     slug = db.Column(db.String(150), unique=True, nullable=False)
     image = db.Column(db.String(255), nullable=True)
     parent_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    alternates = db.relationship('Category',
-                                 backref=db.backref('parent', remote_side=[id])
-                                 )
+    alternates = db.relationship('Category', backref=db.backref('parent', remote_side=[id]))
+
+    def __init__(self, name, image = '', parent_id = None):
+        self.name = name
+        self.slug = slugify(name)
+        self.image = image
+        self.parent_id = parent_id
+
+    def __str__(self):
+        return 'Category %r' % self.name
+
+    def __repr__(self):
+        return '<Category %r>' % self.name
+
 # modules
 # permissions
