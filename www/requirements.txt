@@ -1,5 +1,5 @@
-Flask  
-datetime 
+Flask
+datetime
 uuid
 Flask-SQLAlchemy
 PyJWT
@@ -11,3 +11,4 @@ Marshmallow-Sqlalchemy
 PyJWT
 flask-jwt-extended
 Flask-Cors
+python-slugify

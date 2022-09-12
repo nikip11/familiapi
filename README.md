@@ -1,17 +1,18 @@
 # Familiapi
 
 ## Modules
-- [x] Users
-- [-] Auth
 - [x] About
+- [X] Stories
+- [x] Users
+  - [/] Auth
+  - [/] Permission
+  - [ ] Modules
 - [ ] Games
 - [ ] Blog
-- [X] Stories
-- [-] Fitfoods
-  - [-] Foods
+- [/] Fitfoods
+  - [/] Foods
   - [ ] Recipe
 
 ## commons
-- [ ] Tags
+- [x] Tags
 - [ ] Categories
-- [ ] Modules

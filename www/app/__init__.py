@@ -10,6 +10,7 @@ from app.stories.routes import stories_blueprint
 from app.about.routes import about_blueprint
 from app.fitfood.routes import fitfood_blueprint
 from app.auth.routes import auth_blueprint
+from app.common.routes import commons_blueprint
 from .ext import ma, migrate
 
 def create_app(settings_module):
@@ -32,6 +33,7 @@ def create_app(settings_module):
     app.register_blueprint(about_blueprint)
     app.register_blueprint(fitfood_blueprint)
     app.register_blueprint(auth_blueprint)
+    app.register_blueprint(commons_blueprint)
     # Registra manejadores de errores personalizados
     register_error_handlers(app)
     return app
