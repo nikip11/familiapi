@@ -34,11 +34,15 @@ class TagListResource(Resource):
         return tag_schema.dump(tag), 201
 
 class CategoryResource(Resource):
-    def get(self, id):
+
+    def get(self, id = None):
+        if (id is None):
+            categories = Category.query.all()
+            return category_schema.dump(categories, many=True)
         category = Category.query.get_or_404(id)
         if category is None:
             raise ObjectNotFound('Category not found')
-        return category_schema.dump(category, many=True)
+        return category_schema.dump(category)
 
     def put(self, id):
         category = Category.query.get_or_404(id)
@@ -50,11 +54,6 @@ class CategoryResource(Resource):
         category.delete()
         return '', 204
 
-class CategoryListResource(Resource):
-    def get(self):
-        categories = Category.query.all()
-        return category_schema.dump(categories, many=True)
-
     def post(self):
         data = request.get_json()
         category = Category.query.filter_by(name=data['name']).first()
@@ -63,3 +62,40 @@ class CategoryListResource(Resource):
             category = Category(**category_dict)
             category.save()
         return category_schema.dump(category), 201
+
+class CategoryParentResource(Resource):
+    def __init__(self, **kwargs):
+        self.parent = Category.query.filter_by(name=kwargs['parent']).first()
+        if (self.parent is None):
+            raise ObjectNotFound('Missing parent Category')
+
+    def get(self, id = None):
+        if (id is None):
+            categories = Category.query.filter_by(parent=self.parent).all()
+            return category_schema.dump(categories, many=True)
+
+        category = Category.query.filter_by(parent=self.parent, id=id).first()
+        if category is None:
+            raise ObjectNotFound('Category not found')
+        return category_schema.dump(category
+        )
+
+    def put(self, id):
+        category = Category.query.get_or_404(id)
+        category_schema.load(request.json, instance=category)
+        return category_schema.dump(category)
+
+    def delete(self, id):
+        category = Category.query.get_or_404(id)
+        category.delete()
+        return '', 204
+
+    def post(self):
+        data = request.get_json()
+        category = Category.query.filter_by(name=data['name']).first()
+        if category is None:
+            category_dict = category_schema.load(data)
+            category = Category(**category_dict, parent=self.parent)
+            category.save()
+        return category_schema.dump(category), 201
+

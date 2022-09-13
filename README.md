@@ -10,9 +10,9 @@
 - [ ] Games
 - [ ] Blog
 - [-] Fitfoods
-  - [-] Foods
+  - [x] Foods
   - [ ] Recipe
 
 ## commons
 - [x] Tags
-- [ ] Categories
+- [x] Categories

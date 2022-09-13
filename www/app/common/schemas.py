@@ -7,5 +7,6 @@ class TagSchema(ma.Schema):
     slug = fields.String(dump_only=True)
 
 class CategorySchema(ma.Schema):
-    id = fields.Integer(dump_only=True)
+    id = fields.Integer()
     name = fields.String(required=True)
+    # parent = fields.Nested(lambda: CategorySchema(exclude=("parent",)))
