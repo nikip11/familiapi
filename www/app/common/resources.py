@@ -79,10 +79,12 @@ class CategoryParentResource(Resource):
             raise ObjectNotFound('Category not found')
         return category_schema.dump(category
         )
-
+    # TDDO category update
     def put(self, id):
         category = Category.query.get_or_404(id)
-        category_schema.load(request.json, instance=category)
+        category_dict = category_schema.load(request.json)
+        category = Category(**category_dict)
+        category.update()
         return category_schema.dump(category)
 
     def delete(self, id):

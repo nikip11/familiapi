@@ -17,7 +17,6 @@ class Food(db.Model, BaseModelMixin):
 
     # tags = db.relationship('Tag', secondary=food_tags, backref='food', cascade="all, delete")
     # recipes = db.relationship('RecipeIngredient', back_populates='food')
-    # parent_slug='calorias'
 
     def __init__(self, name, kc_100, portion, kc_portion, category):
         print(category['name'], '====')

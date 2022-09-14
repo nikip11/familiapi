@@ -1,5 +1,6 @@
 from flask import Blueprint
 from flask_restful import Api
+from app.fitfood.types import FOOD_CATEGORY
 from .resources import FoodResource
 from app.common.resources import CategoryParentResource
 
@@ -8,4 +9,4 @@ api = Api(fitfood_blueprint)
 
 api.add_resource(FoodResource, '/food/<int:id>', '/food')
 
-api.add_resource(CategoryParentResource, '/categories/<int:id>', '/categories', resource_class_kwargs={'parent': 'fitfood'})
+api.add_resource(CategoryParentResource, '/categories/<int:id>', '/categories', resource_class_kwargs={'parent': FOOD_CATEGORY})

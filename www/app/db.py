@@ -8,6 +8,9 @@ class BaseModelMixin:
         db.session.add(self)
         db.session.commit()
 
+    def update(self):
+        db.session.commit()
+
     def delete(self):
         db.session.delete(self)
         db.session.commit()
@@ -19,7 +22,7 @@ class BaseModelMixin:
     @classmethod
     def get_by_id(cls, id):
         return cls.query.get(id)
-        
+
     @classmethod
     def simple_filter(cls, **kwargs):
         return cls.query.filter_by(**kwargs).all()

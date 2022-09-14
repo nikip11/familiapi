@@ -30,7 +30,8 @@ class Category(db.Model, BaseModelMixin):
     alternates = db.relationship('Category', backref=db.backref('parent', remote_side=[id]))
     food = db.relationship('Food', backref='category', lazy=True)
 
-    def __init__(self, name, image = '', parent = None):
+    def __init__(self, name, id = None, image = '', parent = None):
+        self.id = id
         self.name = name
         self.slug = slugify(name)
         self.image = image
