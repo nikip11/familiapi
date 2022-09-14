@@ -12,3 +12,4 @@ PyJWT
 flask-jwt-extended
 Flask-Cors
 python-slugify
+# flask-marshmallow
