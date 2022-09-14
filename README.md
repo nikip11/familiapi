@@ -4,14 +4,14 @@
 - [x] About
 - [X] Stories
 - [x] Users
-  - [-] Auth
-  - [-] Permission
+  - [ ] *Auth
+  - [ ] *Permission
   - [ ] Modules
 - [ ] Games
 - [ ] Blog
-- [-] Fitfoods
+- [ ] Fitfoods
   - [x] Foods
-  - [ ] Recipe
+  - [x] Recipe
 
 ## commons
 - [x] Tags
